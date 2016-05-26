@@ -1,4 +1,4 @@
-def getFizz(num):
+def getFizzBuzz(num):
     if num % 5 == 0 and num % 3 == 0:
         return 'fizzbuzz'
     elif num % 3 == 0:
@@ -10,4 +10,4 @@ def getFizz(num):
 
 num = eval(input())
 
-print(getFizz(num))
+print(getFizzBuzz(num))
