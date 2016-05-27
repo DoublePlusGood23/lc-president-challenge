@@ -1,10 +1,9 @@
 ; This is a simple program to read through a file and output vowels
 ; to stderr, and constants to stdout.
 
-global _start
-
 section .text
 
+global _start
 _start:
 	mov eax, 0x5  ; open
 	mov ebx, file ; filename
@@ -66,7 +65,16 @@ _start:
 			cmp ecx, eax ; compare current index to the buffer count
 			jl compareloop
 		jmp bufferloop
-	done:
+	done:        pusha
+
+        mov eax, 0x4       ; syscall write
+        mov ebx, 1         ; stdout
+        mov ecx, cbuffer   ; constants
+        mov edx, [cfilled] ; size of buffer
+
+        mov dword [cfilled], 0 ; reset index to 0
+
+        popa
 	call writec
 	call writev
 	call exit
@@ -78,6 +86,7 @@ writec:
 	mov ebx, 1         ; stdout
 	mov ecx, cbuffer   ; constants
 	mov edx, [cfilled] ; size of buffer
+	int 0x80           ; syscall
 
 	mov dword [cfilled], 0 ; reset index to 0
 
@@ -91,6 +100,7 @@ writev:
         mov ebx, 2         ; stderr
         mov ecx, vbuffer   ; vowels
         mov edx, [vfilled] ; size of buffer
+	int 0x80           ; syscall
 
         mov dword [vfilled], 0 ; reset index to 0
 
@@ -105,6 +115,7 @@ exit:
 section .data
 
 file db "../results/wap.txt"
+file_len db $-file
 
 inbuffer times 1024 db 0
 
