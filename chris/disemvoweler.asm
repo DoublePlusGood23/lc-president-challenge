@@ -104,7 +104,7 @@ exit:
 
 section .data
 
-file db "file.txt"
+file db "../results/wap.txt"
 
 inbuffer times 1024 db 0
 
