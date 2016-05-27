@@ -1,6 +1,6 @@
 List<String> vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U', 'i']
 
-String input = System.console().readLine('Enter input: ')
+String input = new File('../wap.txt').getText()
 String output = ''
 String vow = ''
 

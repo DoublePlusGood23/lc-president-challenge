@@ -8,6 +8,5 @@ def get_fizzbuzz(num):
     else:
         return str(num)
 
-num = eval(input())
-
-print(get_fizzbuzz(num))
+for x in range(1, 100001):
+	print(get_fizzbuzz(x))
