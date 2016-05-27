@@ -1,14 +1,11 @@
 List<String> vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U', 'i']
 
-String input = new File('../results/wap.txt').getText()
-StringBuilder output = new StringBuilder()
-StringBuilder vow = new StringBuilder()
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))
 
-for(char c : input.toCharArray()){
+char c
+while((c = br.read()) >= 0) {
 	if(c == ' ') {}
-	else if(vowels.contains(c)) vow.append(c)
-	else output.append(c)
+	else if(vowels.contains(c)) bw.write(c)
+	else bw.write(c)
 }
-
-println output
-println vow
