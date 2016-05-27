@@ -1,6 +1,6 @@
 List<String> vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U', 'i']
 
-String input = new File('../results/wap.txt').getText()
+String input = new File('/dev/stdi
 StringBuilder output = new StringBuilder()
 
 for(char c : input.toCharArray()){
