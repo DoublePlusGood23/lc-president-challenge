@@ -1,4 +1,4 @@
-not_vowel = 'bcdfghjklmnpqrtvwxyzBCDFGHJKLMNPQRTVWXYZ'
+vowel = 'aieouAIEOU'
 
 phrase = input()
 
@@ -9,10 +9,8 @@ vowels = ''
 phrase = phrase.replace(' ', '')
 
 for char in phrase:
-    if char in not_vowel:
-        output += char  # Add non vowel to output
-    else:
+    if char in vowel:
         vowels += char  # Add vowels to vowels
 
-print(output)
+print(phrase.strip(vowel))
 print(vowels)
