@@ -1,0 +1,4 @@
+# Ignores a bunch of file extensions for the programs
+*.o
+*.elf
+*.lst
